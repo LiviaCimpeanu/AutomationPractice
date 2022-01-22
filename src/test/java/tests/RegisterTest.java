@@ -79,11 +79,10 @@ public class RegisterTest {
         WebElement yearElement = driver.findElement(By.id("yearbox"));
         Select yearSelect = new Select(yearElement);
         yearSelect.selectByValue("1995");
-        yearElement.click();
 
-        WebElement monthElement = driver.findElement(By.id("monthbox"));
+        WebElement monthElement = driver.findElement(By.cssSelector("select[placeholder='Month']"));
         Select monthSelect = new Select(monthElement);
-        monthSelect.selectByVisibleText("January");
+        monthSelect.selectByVisibleText("September");
 
         WebElement uploadFileElement = driver.findElement(By.cssSelector("div>input[id=\"imagesrc\"]"));
         uploadFileElement.sendKeys("C:\\Users\\Livia Maria\\Desktop\\IBAN.jpg");
