@@ -83,7 +83,7 @@ public class RegisterTest {
 
         WebElement monthElement = driver.findElement(By.id("monthbox"));
         Select monthSelect = new Select(monthElement);
-
+        monthSelect.selectByVisibleText("January");
 
         WebElement uploadFileElement = driver.findElement(By.cssSelector("div>input[id=\"imagesrc\"]"));
         uploadFileElement.sendKeys("C:\\Users\\Livia Maria\\Desktop\\IBAN.jpg");
