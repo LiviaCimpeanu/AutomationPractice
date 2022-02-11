@@ -19,59 +19,54 @@ public class RegisterTest extends SharedData {
         elementMethods = new ElementMethods(driver);
 
         WebElement skipSignInElement = driver.findElement(By.id("btn2"));
-        skipSignInElement.click();
+        elementMethods.clickElement(skipSignInElement);
 
         WebElement firstNameElement = driver.findElement(By.cssSelector("input[placeholder='First Name']"));
-        firstNameElement.click();
-        String firstNameValue = "Livia";
-        firstNameElement.sendKeys(firstNameValue);
+        elementMethods.clickElement(firstNameElement);
+        elementMethods.fillElement(firstNameElement,"Livia");
 
         WebElement lastNameElement = driver.findElement(By.cssSelector("input[placeholder='Last Name']"));
-        lastNameElement.click();
-        String lastNameValue = "Cimpeanu";
-        lastNameElement.sendKeys(lastNameValue);
+        elementMethods.clickElement(lastNameElement);
+        elementMethods.fillElement(lastNameElement,"Cimpeanu");
 
         WebElement addressElement = driver.findElement(By.cssSelector("textarea[rows='3']"));
-        addressElement.click();
-        String addressValue = "Strada Mihai Romanulm numarul 25AB, Cluj-Napoca, Jud. Cluj";
-        addressElement.sendKeys(addressValue);
+        elementMethods.clickElement(addressElement);
+        elementMethods.fillElement(addressElement,"Strada Mihai Romanulm numarul 25AB, Cluj-Napoca, Jud. Cluj");
 
         WebElement emailElement = driver.findElement(By.cssSelector("input[type='email']"));
-        emailElement.click();
-        String emailValue = "livia_cimpeanu@yahoo.com";
-        emailElement.sendKeys(emailValue);
+        elementMethods.clickElement(emailElement);
+        elementMethods.fillElement(emailElement,"livia_cimpeanu@yahoo.com");
 
         WebElement phoneNumberElement = driver.findElement(By.cssSelector("input[type='tel']"));
-        phoneNumberElement.click();
-        String phoneNumberValue = "0743669180";
-        phoneNumberElement.sendKeys(phoneNumberValue);
+        elementMethods.clickElement(phoneNumberElement);
+        elementMethods.fillElement(phoneNumberElement,"0743669180");
 
         WebElement genderElement = driver.findElement(By.cssSelector("input[value='FeMale']"));
-        genderElement.click();
+        elementMethods.clickElement(genderElement);
 
         WebElement hobbiesElement = driver.findElement(By.cssSelector("input[value='Movies']"));
-        hobbiesElement.click();
+        elementMethods.clickElement(hobbiesElement);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,500)");
 
         WebElement languageElement = driver.findElement(By.id("msdd"));
-        languageElement.click();
+        elementMethods.clickElement(languageElement);
         List<WebElement> LanguageOption = driver.findElements(By.cssSelector(".ui-autocomplete.ui-front>li>a"));
         for (int index = 0;index < LanguageOption.size();index++){
             if (LanguageOption.get(index).getText().equals("English")
                     || LanguageOption.get(index).getText().equals("Arabic")
                     || LanguageOption.get(index).getText().equals("Estonian")){
-                LanguageOption.get(index).click();
+                elementMethods.clickElement(LanguageOption.get(index));
             }
         }
 
-        phoneNumberElement.click();
+        elementMethods.clickElement(phoneNumberElement);
 
         WebElement countryElement = driver.findElement(By.cssSelector("span[role='combobox']"));
-        countryElement.click();
+        elementMethods.clickElement(countryElement);
         WebElement countryInputElement = driver.findElement(By.className("select2-search__field"));
-        countryInputElement.sendKeys("Australia");
+        elementMethods.fillElement(countryInputElement,"Australia");
         countryInputElement.sendKeys(Keys.ENTER);
 
         WebElement yearElement = driver.findElement(By.id("yearbox"));
@@ -79,6 +74,9 @@ public class RegisterTest extends SharedData {
 
         WebElement monthElement = driver.findElement(By.cssSelector("select[placeholder='Month']"));
         elementMethods.selectElementByText(monthElement,"September");
+
+        WebElement dayElement = driver.findElement(By.id("daybox"));
+        elementMethods.selectElementByValue(dayElement,"7");
 
         WebElement uploadFileElement = driver.findElement(By.cssSelector("div>input[id=\"imagesrc\"]"));
         uploadFileElement.sendKeys("C:\\Users\\Livia Maria\\Desktop\\IBAN.jpg");

@@ -15,7 +15,7 @@ public class FrameMethods {
         this.driver = driver;
     }
 
-    public void awitchToFrameById (String value){
+    public void switchToFrameById (String value){
         waitFrame(value);
     }
 

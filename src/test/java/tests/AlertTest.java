@@ -36,24 +36,24 @@ public class AlertTest extends SharedData {
         Action.moveToElement(switchToElement).perform();
 
         WebElement alertsElement = driver.findElement(By.xpath("//a[text()='Alerts']"));
-        alertsElement.click();
+        elementMethods.clickElement(alertsElement);
 
         pageMethods.navigateToURL("http://demo.automationtesting.in/Alerts.html");
 
         List<WebElement> alertOptions= driver.findElements(By.cssSelector(".nav-tabs>li>a"));
-        alertOptions.get(0).click();
+        elementMethods.clickElement(alertOptions.get(0));
         WebElement alertOK = driver.findElement(By.cssSelector("#OKTab>button"));
-        alertOK.click();
+        elementMethods.clickElement(alertOK);
         alertMethods.acceptAllert();
 
-        alertOptions.get(1).click();
+        elementMethods.clickElement(alertOptions.get(1));
         WebElement alertOKCancel = driver.findElement(By.cssSelector("#CancelTab>button"));
-        alertOKCancel.click();
+        elementMethods.clickElement(alertOKCancel);
         alertMethods.cancelAlert();
 
-        alertOptions.get(2).click();
+        elementMethods.clickElement(alertOptions.get(2));
         WebElement alertTextbox = driver.findElement(By.cssSelector("#Textbox>button"));
-        alertTextbox.click();
+        elementMethods.clickElement(alertTextbox);
         alertMethods.acceptFillAllert("Test");
     }
 

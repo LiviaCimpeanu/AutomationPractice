@@ -10,7 +10,7 @@ public class PageMethods {
 
     public WebDriver driver;
 
-    public PageMethods(WebDriver driver) {
+    public PageMethods(WebDriver driver){
         this.driver = driver;
     }
 

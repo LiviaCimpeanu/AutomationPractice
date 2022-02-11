@@ -1,6 +1,8 @@
 package tests;
 
 import Base.SharedData;
+import Help.ElementMethods;
+import Help.PageMethods;
 import Help.WindowMethods;
 import jdk.nashorn.internal.runtime.arrays.ArrayData;
 import org.junit.Test;
@@ -15,45 +17,49 @@ import java.util.List;
 public class WindowTest extends SharedData {
 
     public WindowMethods windowMethods;
+    public ElementMethods elementMethods;
+    public PageMethods pageMethods;
 
     @Test
     public void testAutomat(){
 
         windowMethods = new WindowMethods(driver);
+        elementMethods = new ElementMethods(driver);
+        pageMethods = new PageMethods(driver);
 
         WebElement skipSignInElement = driver.findElement(By.id("btn2"));
-        skipSignInElement.click();
+        elementMethods.clickElement(skipSignInElement);
 
         WebElement switchToElement = driver.findElement(By.xpath("//a[text()='SwitchTo']"));
         Actions Action = new Actions(driver);
         Action.moveToElement(switchToElement).perform();
 
         WebElement windowsElement = driver.findElement(By.xpath("//a[text()='Windows']"));
-        windowsElement.click();
+        elementMethods.clickElement(windowsElement);
 
-        driver.navigate().to("http://demo.automationtesting.in/Windows.html");
+        pageMethods.navigateToURL("http://demo.automationtesting.in/Windows.html");
 
         List<WebElement> windowsOptions = driver.findElements(By.cssSelector(".nav-tabs>li>a"));
-        windowsOptions.get(0).click();
+        elementMethods.clickElement(windowsOptions.get(0));
         WebElement newTabOK = driver.findElement(By.cssSelector("#Tabbed>a>button"));
-        newTabOK.click();
+        elementMethods.clickElement(newTabOK);
 
         windowMethods.switchToTab(1);
         windowMethods.closeCurrentTab();
         windowMethods.switchToTab(0);
 
 
-        windowsOptions.get(1).click();
+        elementMethods.clickElement(windowsOptions.get(1));
         WebElement newWindowOK = driver.findElement(By.cssSelector("#Seperate>button"));
-        newWindowOK.click();
+        elementMethods.clickElement(newWindowOK);
 
         windowMethods.switchToTab(1);
         windowMethods.closeCurrentTab();
         windowMethods.switchToTab(0);
 
-        windowsOptions.get(2).click();
+        elementMethods.clickElement(windowsOptions.get(2));
         WebElement newMultipleElements = driver.findElement(By.cssSelector("#Multiple>button"));
-        newMultipleElements.click();
+        elementMethods.clickElement(newMultipleElements);
 
         windowMethods.switchToTab(2);
         windowMethods.closeCurrentTab();
